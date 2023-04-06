@@ -8,7 +8,7 @@ const app = express()
 // rest of packages
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-// const cors = require('cors')
+const cors = require('cors')
 
 
 //database
@@ -27,12 +27,16 @@ app.use(morgan('tiny'));
 app.use(express.json()); //logs each request to the console
 app.use(cookieParser(process.env.JWT_SECRET));
 
- // To make requets during dev of same server
 // app.use(cors({
 //     origin:'http://localhost:3000', 
 //     credentials:true,            
 //     optionSuccessStatus:200
 // }))
+
+
+app.use(cors({
+    origin:'*'
+}))
 
 app.set('trust proxy', 1);
 
