@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 
 
+
 //database
 const connectDB = require('./db/connect');
 
@@ -35,7 +36,8 @@ app.use(cookieParser(process.env.JWT_SECRET));
 
 
 app.use(cors({
-    origin:'*'
+    origin:'*',
+    credentials: true
 }))
 
 app.set('trust proxy', 1);
