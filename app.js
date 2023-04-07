@@ -28,16 +28,16 @@ app.use(morgan('tiny'));
 app.use(express.json()); //logs each request to the console
 app.use(cookieParser(process.env.JWT_SECRET));
 
-// app.use(cors({
-//     origin:'http://localhost:3000', 
+// app.use(cors({0
+//     origin:'http://localhost:3000/', 
 //     credentials:true,            
 //     optionSuccessStatus:200
 // }))
 
 
 app.use(cors({
-    origin:'*',
-    credentials: true
+    origin:'http://localhost:3000',
+    credentials: true,
 }))
 
 app.set('trust proxy', 1);
