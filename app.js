@@ -8,7 +8,7 @@ const app = express()
 // rest of packages
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-const cors = require('cors')
+const cors = require('cors');
 
 
 
@@ -19,6 +19,7 @@ const connectDB = require('./db/connect');
 const authRouter = require('./routes/authRoutes');
 const userRouter = require('./routes/userRoutes');
 const userDataRouter = require('./routes/UserDataRoutes');
+const translationRouter = require('./routes/translationRoutes');
 
 //middleware 
 const notFoundMiddleware = require('./middleware/not-found');
@@ -46,6 +47,8 @@ app.set('trust proxy', 1);
 app.use('/api/v1/auth',authRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/userdata', userDataRouter);
+app.use('/api/v1/translate', translationRouter);
+
 
 
 app.get('/', (req, res) => {
@@ -62,7 +65,7 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3005
 
 const start = async () => {
     try {
