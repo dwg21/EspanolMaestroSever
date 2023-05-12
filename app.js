@@ -37,7 +37,7 @@ app.use(cookieParser(process.env.JWT_SECRET));
 
 
 // app.use(cors({
-//     origin:'https://espanolmaestroserver.onrender.com',
+//     origin:'https://http://localhost:3000/',
 //     credentials: true,
 // }))
 
